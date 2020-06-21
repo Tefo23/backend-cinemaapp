@@ -12,10 +12,7 @@ const userSchema = mongoose.Schema({
     trim: true,
     lowercase: true
   },
-  cnic: {
-    type: String,
-    required: false
-    },
+  
   email: {
     type: String,
     required: true,

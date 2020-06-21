@@ -69,7 +69,7 @@ router.patch('/user/edit', auth, async(req,res)=>{
     req.body = req.body
   }
   const updates = Object.keys(req.body)
-  const allowedUpdates = ["username", "email", "cnic", "password"]
+  const allowedUpdates = ["username", "email", "password"]
   const isValid = updates.every((update) => allowedUpdates.includes(update))
   if(!isValid){
     res.status(400).send("User trying invalid Updates!")

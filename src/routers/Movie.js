@@ -135,6 +135,26 @@ router.post('/movie/unbook/:id',auth, async(req, res)=>{
   }
 })
 
+//mytickets
+router.get('/mytickets',auth, async(req, res)=>{
+  try{
+    const movie = await Movie.find()
+    let tickets = []
+    movie.forEach((m)=>{
+      m.viewers.forEach((v)=>{
+        if(v.viewer == req.user._id){
+          tickets.push(m)
+        }
+
+      })
+    })
+    res.status(200).send(tickets)
+  }catch(e){
+    res.status(400).send(e)
+  }
+})
+
+
 
 
 module.exports = router;

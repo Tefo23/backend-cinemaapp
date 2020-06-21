@@ -30,7 +30,7 @@ var upload = multer({
 
 // Add the movie details.
 // to show on the cards.
-router.post('/movie',  upload.single('image'), auth, async(req, res)=>{
+router.post('/movie',  upload.single('image'), async(req, res)=>{
   let movie
   if(req.file){
       movie = new Movie({

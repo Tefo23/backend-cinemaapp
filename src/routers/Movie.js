@@ -65,7 +65,7 @@ router.get('/movie', async(req, res)=>{
 
 //Delete route for movie.
 //Admin can delete the movie.
-router.delete('/movie/del/:id', auth, async(req, res)=>{
+router.delete('/movie/del/:id', async(req, res)=>{
   try{
     await Movie.findByIdAndDelete(req.params.id)
     res.status(200).send({msg : 'Successfully Deleted!'})
